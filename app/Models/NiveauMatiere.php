@@ -19,4 +19,8 @@ class NiveauMatiere extends Model
     {
         return $this->belongsTo(Matiere::class);
     }
+    public function charge_horaires()
+    {
+        return $this->hasMany(ChargeHoraire::class);
+    }
 }
