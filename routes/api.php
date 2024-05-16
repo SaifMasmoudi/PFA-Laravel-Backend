@@ -13,6 +13,7 @@ use App\Http\Controllers\PrimeController;
 use App\Http\Controllers\CongeController;
 use App\Http\Controllers\ChargeHoraireController;
 use App\Http\Controllers\AnneeUniversitaireController;
+use App\Http\Controllers\EmploiController;
 
 
 /*
@@ -49,6 +50,9 @@ Route::get('/res/{idmatiere}',[NiveauMatiereController::class,'showmatiere']);
 
 
 
+Route::middleware('api')->group(function () { Route::resource('emplois', EmploiController::class);});
+Route::get('/emp/{idsalle}',[EmploiController::class,'showSalle']);
+Route::get('/emp/{idannee}',[EmploiController::class,'showAnnee']);
 
 
 

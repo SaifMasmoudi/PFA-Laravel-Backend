@@ -14,4 +14,9 @@ class AnneeUniversitaire extends Model
     {
         return $this->belongsTo(ChargeHoraire::class,"id_charge_horaire");
     }
+
+    public function emplois()
+    {
+    return $this->hasMany(Emploi::class ,"id_annee");
+    }
 }
