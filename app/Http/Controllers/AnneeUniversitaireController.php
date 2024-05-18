@@ -9,7 +9,7 @@ class AnneeUniversitaireController extends Controller
 {
     public function index()
     {
-        $annee = AnneeUniversitaire::with('charge_horaires')->get();
+        $annee = AnneeUniversitaire::all();
         return $annee;
     }
 
@@ -19,8 +19,8 @@ class AnneeUniversitaireController extends Controller
     public function store(Request $request)
     {
         $annee = new AnneeUniversitaire([
-            'nom_annee' => $request->input('nom_annee'),
-            'id_charge_horaire' => $request->input('id_charge_horaire'),
+            'semestre' => $request->input('semestre'),
+            
             ]);
             $annee->save();
             return response()->json($annee,201);
@@ -57,9 +57,5 @@ class AnneeUniversitaireController extends Controller
     }
 
 
-    public function showAnneeUniversitaire($idcat)
-    {
-        $annee= AnneeUniversitaire::where('id_charge_horaire', $idcat)->with('charge_horaires')->get();
-        return response()->json($annee);
-}
+    
 }

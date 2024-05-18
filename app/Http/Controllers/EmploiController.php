@@ -12,7 +12,7 @@ class EmploiController extends Controller
      */
     public function index()
     {
-        $emploi = Emploi::with('salles','annee_universitaires')->get();
+        $emploi = Emploi::with('salles','annee_universitaires','jours','horaires','charge_horaires')->get();
         return $emploi;
     }
 
@@ -22,9 +22,9 @@ class EmploiController extends Controller
     public function store(Request $request)
     {
         $emploi = new Emploi([
-            'jour' => $request->input('jour'),
-            'heure_debut' => $request->input('heure_debut'),
-            'heure_fin' => $request->input('heure_fin'),
+            'id_jour' => $request->input('id_jour'),
+            'id_heure' => $request->input('id_heure'),
+            'id_charge_horaire' => $request->input('id_charge_horaire'),
             'id_salle' => $request->input('id_salle'),
             'id_annee' => $request->input('id_annee'),
             ]);
@@ -82,4 +82,27 @@ public function showAnnee($idannee)
     $emploi= Emploi::where('id_annee', $idannee)->with('annee_universitaires')->get();
     return response()->json($emploi);
 }
+
+public function showjour($idjour)
+{
+    $emploi= Emploi::where('id_jour', $idjour)->with('jours')->get();
+    return response()->json($emploi);
+}
+
+public function showheure($idheure)
+{
+    $emploi= Emploi::where('id_heure', $idheure)->with('horaires')->get();
+    return response()->json($emploi);
+}
+
+
+public function showcharge($idcharge)
+{
+    $emploi= Emploi::where('id_charge_horaire', $idcharge)->with('charge_horaires')->get();
+    return response()->json($emploi);
+}
+
+
+
+
 }

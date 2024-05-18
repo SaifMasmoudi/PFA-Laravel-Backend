@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AnneeUniversitaire extends Model
+class Jour extends Model
 {
     use HasFactory;
-    protected $fillable = ['semestre'];
+    protected $fillable = ['nom'];
 
-    
     public function emplois()
     {
-    return $this->hasMany(Emploi::class ,"id_annee");
+    return $this->hasMany(Emploi::class ,"id_jour");
     }
 }

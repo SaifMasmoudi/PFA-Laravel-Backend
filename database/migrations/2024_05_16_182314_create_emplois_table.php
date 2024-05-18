@@ -13,14 +13,20 @@ return new class extends Migration
     {
         Schema::create('emplois', function (Blueprint $table) {
             $table->id();
-            $table->string('jour');
-            $table->string('heure_debut');
-            $table->string('heure_fin');
+            $table->foreignId('id_jour')->constrained('jours');
+            $table->foreignId('id_heure')->constrained('horaires');
+            $table->foreignId('id_charge_horaire')->constrained('charge_horaires');
             $table->foreignId('id_salle')->constrained('salles');
-            $table->foreignId('id_annee')->constrained('annee_universitaires');
+            $table->unsignedBigInteger('id_annee');
+            $table->foreign('id_annee')
+            ->references('nom_annee')
+            ->on('annee_universitaires')
+            ->onDelete('restrict')
+            ->onUpdate('restrict');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

@@ -73,4 +73,6 @@ class ChargeHoraireController extends Controller
         $rese= ChargeHoraire::where('id_enseignant', $idenseignant)->with('enseignants')->get();
         return response()->json($rese);
         }
+       
+ 
 }

@@ -14,6 +14,8 @@ use App\Http\Controllers\CongeController;
 use App\Http\Controllers\ChargeHoraireController;
 use App\Http\Controllers\AnneeUniversitaireController;
 use App\Http\Controllers\EmploiController;
+use App\Http\Controllers\JourController;
+use App\Http\Controllers\HoraireController;
 
 
 /*
@@ -53,7 +55,9 @@ Route::get('/res/{idmatiere}',[NiveauMatiereController::class,'showmatiere']);
 Route::middleware('api')->group(function () { Route::resource('emplois', EmploiController::class);});
 Route::get('/emp/{idsalle}',[EmploiController::class,'showSalle']);
 Route::get('/emp/{idannee}',[EmploiController::class,'showAnnee']);
-
+Route::get('/emp/{idjour}',[EmploiController::class,'showjour']);
+Route::get('/emp/{idheure}',[EmploiController::class,'showheure']);
+Route::get('/emp/{idcharge}',[EmploiController::class,'showcharge']);
 
 
 
@@ -69,11 +73,12 @@ Route::get('/res/{idenseignant}',[ChargeHoraireController::class,'showenseignant
 
 
 Route::middleware('api')->group(function () {Route::resource('annee_universitaires', AnneeUniversitaireController::class); });
-Route::get('/annee/{idcat}',[AnneeUniversitaireController::class,'showAnneeUniversitaire']);
 
 
 
 
+Route::middleware('api')->group(function () {Route::resource('jours', JourController::class);});
+Route::middleware('api')->group(function () {Route::resource('horaires', HoraireController::class);});
 
 
 

@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('annee_universitaires', function (Blueprint $table) {
-            $table->id('nom_annee');
-            $table->string('semestre');
+        Schema::create('jours', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom');
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('annee_universitaires');
+        Schema::dropIfExists('jours');
     }
 };
