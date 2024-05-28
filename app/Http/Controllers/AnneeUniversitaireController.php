@@ -18,14 +18,14 @@ class AnneeUniversitaireController extends Controller
      */
     public function store(Request $request)
     {
-        $annee = new AnneeUniversitaire([
-            'semestre' => $request->input('semestre'),
-            
-            ]);
-            $annee->save();
-            return response()->json($annee,201);
+        $annee = new AnneeUniversitaire();
+        $annee->nom_annee = $request->input('nom_annee');
+        $annee->semester = $request->input('semester');
+        
+        $annee->save();
+        return response()->json($annee, 201);
     }
-
+    
     /**
      * Display the specified resource.
      */

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('id_heure')->constrained('horaires');
             $table->foreignId('id_charge_horaire')->constrained('charge_horaires');
             $table->foreignId('id_salle')->constrained('salles');
-            $table->unsignedBigInteger('id_annee');
+            $table->string('id_annee');
             $table->foreign('id_annee')
             ->references('nom_annee')
             ->on('annee_universitaires')

@@ -9,11 +9,11 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('annee_universitaires', function (Blueprint $table) {
-            $table->id('nom_annee');
-            $table->string('semestre');
+            $table->string('nom_annee')->primary();
+            $table->string('semester');
             $table->timestamps();
         });
     }

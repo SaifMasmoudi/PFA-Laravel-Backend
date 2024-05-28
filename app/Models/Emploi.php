@@ -16,7 +16,7 @@ class Emploi extends Model
 
     public function annee_universitaires()
     {
-        return $this->belongsTo(AnneeUniversitaire::class, 'nom_annee');
+        return $this->belongsTo(AnneeUniversitaire::class, 'id_annee');
     }
 
     public function salles()

@@ -10,17 +10,18 @@ class NiveauMatiere extends Model
     use HasFactory;
     protected $fillable = ['id_niveau', 'id_matiere'];
 
-    public function niveaux()
+    public function niveau()
     {
-        return $this->belongsTo(Niveau::class);
+        return $this->belongsTo(Niveau::class, 'id_niveau');
     }
 
-    public function matieres()
+    public function matiere()
     {
-        return $this->belongsTo(Matiere::class);
+        return $this->belongsTo(Matiere::class, 'id_matiere');
     }
-    public function charge_horaires()
+
+    public function chargeHoraires()
     {
-        return $this->hasMany(ChargeHoraire::class);
+        return $this->hasMany(ChargeHoraire::class, 'id_niveau_matiere');
     }
 }

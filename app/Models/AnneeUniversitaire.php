@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class AnneeUniversitaire extends Model
 {
     use HasFactory;
-    protected $fillable = ['semestre'];
+    protected $primaryKey = 'nom_annee';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    protected $fillable = ['nom_annee', 'semester'];
 
     
     public function emplois()
